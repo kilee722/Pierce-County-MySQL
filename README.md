@@ -2,6 +2,54 @@
 Extract information with SQL queries in MySQL
 
 
+## Query 4
+
+```
+with house_size as (
+	select Parcel_Number, Land_Gross_Square_Feet, 
+	case when Land_Gross_Square_Feet > 100000 then 'Large'
+	when Land_Gross_Square_Feet < 10000 then 'Small'
+	else 'Medium' end as House_size
+	from appraisal_df ) 
+
+select h.House_size, avg(s.sale_price) avg_sale_price, avg(t.Total_Market_Value_Current_Year) avg_current_market_value
+from house_size h
+join tax_df t on h.Parcel_Number = t.Parcel_Number
+join sale_df s on s.Parcel_Number = t.Parcel_Number
+group by 1;
+
+
+```
+
+| House_Size| avg_sale_price | avg_current_market_value|                                                                                                                             
+|-----------|-------------|---|
+|Small|236348.5714|283314.2857|
+|Large|3269.0000|75400.0000|
+|Medium|134000.0000|297100.0000|
+
+
+
+## Query 5
+
+```
+select a.Appraisal_Account_Type, avg(s.Sale_price) as Avg_Sale_Price
+from appraisal_df as a 
+inner join sale_df as s on a.Parcel_Number = s.Parcel_number
+group by Appraisal_Account_Type;
+
+```
+
+| Appraisal_Account_Type| Avg_Sale_Price |                                                                                                                             
+|-----------|-------------|
+|Residential|550281.5960|
+|Commercial|3838125.0625|
+|Condominium|422179.5714|
+|Industrial|2876038.3333|
+|Com Multi Unit|1176634.5000|
+|Com Condo|824305.0000|
+
+
+
 ## Query 6
 
 ```
