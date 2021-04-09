@@ -3,6 +3,7 @@ Extract information with SQL queries in MySQL
 
 
 ## Query 6
+
 ```
 select year(Sale_Date) as Year , 
 		QUARTER(Sale_Date) as Qrt, 
@@ -15,6 +16,6 @@ group by Year, Qrt
 order by Year desc, Qrt desc
 ```
 
-| Year        | Total_sales |                                                                                                                                     
+| Year        | Qrt | Current_Sale_Price       | Previous_Qrt_Sales |                                                                                                                                    
 |-----------|-------------|
 |2020|1000|
