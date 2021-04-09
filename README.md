@@ -18,4 +18,4 @@ order by Year desc, Qrt desc
 
 | Year        | Qrt | Current_Sale_Price       | Previous_Qrt_Sales |                                                                                                                                    
 |-----------|-------------|------|-----|
-|2020|1000|||
+|2021|1|831410.6849 |1264245.9603 |
