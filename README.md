@@ -1,4 +1,4 @@
-# Pierce-County-MySQL
+# Pierce_County_MySQL
 Extract information from the Pierce County property dataset with SQL queries in MySQL
 Data retrieved from https://www.co.pierce.wa.us/736/Data-Downloads
 ## Query 1
