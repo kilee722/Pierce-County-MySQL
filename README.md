@@ -48,7 +48,7 @@ order by 2 desc;
 ## Query 2
 Median of sales price by attribute
 
-
+```
 with a as (SELECT l.attribute, s.Sale_Price 
    	 from sale_df s
 	inner join land_df l on s.Parcel_Number = l.Parcel_Number)
@@ -64,7 +64,7 @@ FROM
 where rn in ( FLOOR((cnt + 1) / 2), FLOOR( (cnt + 2) / 2) )
 group by attribute
 order by 2 desc;
-
+```
 
 |Property_attribute|	median_sale_price |
 |-----------|-----------|
@@ -97,14 +97,14 @@ order by 2 desc;
 ## Query 3
 The average difference between current market value and sales price at the sales event
 
-
+```
 select year(s.sale_date) as sale_year, 
 	avg(Total_Market_Value_Current_Year - s.sale_price) as Avg_price_difference
 from tax_df t
 join sale_df s on t.Parcel_Number = s.Parcel_Number
 group by 1
 order by 2 desc;
-
+```
 
 
 |sale_year | Avg_price_difference|
